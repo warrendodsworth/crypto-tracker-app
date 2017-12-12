@@ -31,6 +31,8 @@ export class HoldingsProvider {
 
     let index = this.holdings.indexOf(holding);
     this.holdings[index] = holding;
+    this.fetchPrices();
+    this.saveHoldings();
   }
 
   removeHolding(holding): void {
