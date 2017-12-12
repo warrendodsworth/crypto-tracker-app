@@ -1,0 +1,41 @@
+<ion-header>
+  
+   <ion-navbar color="primary">
+     <ion-title>Edit Holding</ion-title>
+   </ion-navbar>
+  
+ </ion-header>
+  
+  
+ <ion-content padding>
+  
+     <ion-list>
+  
+         <ion-item>
+             <ion-label stacked>Crypto Code</ion-label>
+             <ion-input [(ngModel)]="holding.crypto" type="text"></ion-input>
+         </ion-item>
+  
+         <ion-item>
+             <ion-label stacked>Display Currency Code</ion-label>
+             <ion-input [(ngModel)]="holding.currency" type="text"></ion-input>
+         </ion-item>
+  
+         <ion-item>
+             <ion-label stacked>Amount Holding</ion-label>
+             <ion-input [(ngModel)]="holding.amount" type="number"></ion-input>
+         </ion-item>
+  
+     </ion-list>  
+  
+     <button ion-button full (click)="saveEdits()" [disabled]="checkingValidity">Save Edits <ion-spinner *ngIf="checkingValidity"></ion-spinner></button>
+  
+     <p class="error-message" *ngIf="cryptoUnavailable">Sorry, that combination is not currently available. Make sure to only include a single code.</p>
+  
+ </ion-content>
+  
+ <ion-footer padding>
+  
+     <p><strong>Note:</strong> This web application allows you to track your Cryptocurrency without creating an account. This means that all data is stored locally, and may be permanently deleted without warning.</p>
+  
+ </ion-footer>
